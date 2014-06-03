@@ -13,39 +13,39 @@ class PluginPayza extends GatewayPlugin{
         */
 
         $variables = array (
-            /*T*/"Plugin Name"/*/T*/ => array (
+            lang("Plugin Name") => array (
                                 "type"          =>"hidden",
-                                "description"   =>/*T*/"How CE sees this plugin (not to be confused with the Signup Name)"/*/T*/,
-                                "value"         =>/*T*/"Payza"/*/T*/
+                                "description"   =>lang("How CE sees this plugin (not to be confused with the Signup Name)"),
+                                "value"         =>lang("Payza")
             ),
-            /*T*/"User ID"/*/T*/ => array (
+            lang("User ID") => array (
                                 "type"          =>"text",
-                                "description"   =>/*T*/"ID used to identify you to Payza.<br>NOTE: This ID is required if you have selected Payza as a payment gateway for any of your clients."/*/T*/,
+                                "description"   =>lang("ID used to identify you to Payza.<br>NOTE: This ID is required if you have selected Payza as a payment gateway for any of your clients."),
                                 "value"         =>""
             ),
-            /*T*/"Security Code"/*/T*/ => array (
+            lang("Security Code") => array (
                                 "type"          =>"text",
-                                "description"   =>/*T*/"Security Code in your Payza IPN setup."/*/T*/,
+                                "description"   =>lang("Security Code in your Payza IPN setup."),
                                 "value"         =>""
             ),
-            /*T*/"Signup Name"/*/T*/ => array (
+            lang("Signup Name") => array (
                                 "type"          =>"text",
-                                "description"   =>/*T*/"Select the name to display in the signup process for this payment type. Example: eCheck or Credit Card."/*/T*/,
+                                "description"   =>lang("Select the name to display in the signup process for this payment type. Example: eCheck or Credit Card."),
                                 "value"         =>"Payza"
             ),
-            /*T*/"Invoice After Signup"/*/T*/ => array (
+            lang("Invoice After Signup") => array (
                                 "type"          =>"yesno",
-                                "description"   =>/*T*/"Select YES if you want an invoice sent to the customer after signup is complete."/*/T*/,
+                                "description"   =>lang("Select YES if you want an invoice sent to the customer after signup is complete."),
                                 "value"         =>"1"
             ),
-             /*T*/"Use Test Mode"/*/T*/ => array(
+             lang("Use Test Mode") => array(
                                 "type"          =>"yesno",
-                                "description"   =>/*T*/"Select YES if you want to use Payza in test mode. You need to make sure in your IPN settings of Payza you have enabled Test mode"/*/T*/,
+                                "description"   =>lang("Select YES if you want to use Payza in test mode. You need to make sure in your IPN settings of Payza you have enabled Test mode"),
                                 "value"         =>"0"
             ),
-           /*T*/"Check CVV2"/*/T*/ => array (
+           lang("Check CVV2") => array (
                                 "type"          =>"hidden",
-                                "description"   =>/*T*/"Select YES if you want to accept CVV2 for this plugin."/*/T*/,
+                                "description"   =>lang("Select YES if you want to accept CVV2 for this plugin."),
                                 "value"         =>"0"
             )
         );
