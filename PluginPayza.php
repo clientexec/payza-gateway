@@ -2,7 +2,8 @@
 require_once 'modules/admin/models/GatewayPlugin.php';
 require_once 'modules/billing/models/Currency.php';
 
-class PluginPayza extends GatewayPlugin{
+class PluginPayza extends GatewayPlugin
+{
 
     function getVariables()
     {
@@ -52,9 +53,10 @@ class PluginPayza extends GatewayPlugin{
         return $variables;
     }
 
-    function singlepayment($params, $test = false){
-        CE_Lib::log(4,print_r("single payment payza",true) );
-        CE_Lib::log(4,print_r($params,true) );
+    function singlepayment($params, $test = false)
+    {
+        CE_Lib::log(4, print_r("single payment payza", true));
+        CE_Lib::log(4, print_r($params, true));
         $currency = new Currency($this->user);
         $userid=$params['plugin_payza_User ID'];
         $itemName=$params["companyName"]." - Subscription";
@@ -62,15 +64,15 @@ class PluginPayza extends GatewayPlugin{
         if ($params['isSignup']==1) {
             $returnURL=$params["clientExecURL"]."/signup.php?step=6&pass=1";
             $returnURL_Cancel=$params["clientExecURL"]."/signup.php?step=6&pass=0";
-        }else {
+        } else {
             $returnURL=$params["clientExecURL"];
             $returnURL_Cancel=$params["clientExecURL"];
         }
-        $amount = $currency->format($params['currencytype'], $params['invoiceTotal'] , false);
+        $amount = $currency->format($params['currencytype'], $params['invoiceTotal'], false);
         $strRet = "<html>\n";
         $strRet .= "<head></head>\n";
         $strRet .= "<body>\n";
-        $strRet .= "<form method=\"post\" name=\"frmPayza\" action=\"https://secure.payza.com/checkout\" > ";
+        $strRet .= "<form method=\"post\" name=\"frmPayza\" action=\"https://secure.payza.eu/checkout\" > ";
         $strRet .= "<input type=\"hidden\" name=\"ap_purchasetype\" value=\"item\"/> ";
         $strRet .= "<input type=\"hidden\" name=\"ap_merchant\" value=\"".$userid."\"/> ";
         $strRet .= "<input type=\"hidden\" name=\"ap_itemname\" value=\"".$itemName."\"/> ";
@@ -83,7 +85,7 @@ class PluginPayza extends GatewayPlugin{
         $strRet .= "<input type=\"hidden\" name=\"ap_quantity\" value=\"1\"/> ";
         $strRet .= "<input type=\"hidden\" name=\"ap_amount\" value=\"".$amount."\"/> ";
         $strRet .= "<input type=\"hidden\" name=\"ap_cancelurl\" value=\"".$returnURL_Cancel."\"/> ";
-        $strRet .= "<input type=\"image\" name=\"ap_image\" src=\"https://www.payza.com/images/payza-buy-now.png\"/> ";
+        $strRet .= "<input type=\"image\" name=\"ap_image\" src=\"https://www.payza.eu/images/payza-buy-now.png\"/> ";
         $strRet .= "<script language=\"JavaScript\">\n";
         $strRet .= "document.forms['frmPayza'].submit();\n";
         $strRet .= "</script>\n";
@@ -95,9 +97,7 @@ class PluginPayza extends GatewayPlugin{
         exit;
     }
 
-    function credit($params){
+    function credit($params)
+    {
     }
-
 }
-
-?>
