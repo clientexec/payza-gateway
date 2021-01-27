@@ -36,7 +36,7 @@ class PluginPayza extends GatewayPlugin
             ),
             lang("Invoice After Signup") => array (
                                 "type"          =>"yesno",
-                                "description"   =>lang("Select YES if you want an invoice sent to the customer after signup is complete."),
+                                "description"   =>lang("Select YES if you want an invoice sent to the client after signup is complete."),
                                 "value"         =>"1"
             ),
              lang("Use Test Mode") => array(
